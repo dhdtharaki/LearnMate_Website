@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Portfolio - ASD Children Research</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding-top: 70px;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #0d6efd;
+        }
+        .nav-link {
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #0d6efd;
+        }
+        section {
+            padding: 80px 0;
+            overflow: hidden;
+        }
+        .section-bg {
+            background-color: #ffffff;
+        }
+        .section-title {
+            text-align: center;
+            padding-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 700;
+            position: relative;
+            color: #343a40;
+            padding-bottom: 15px;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #0d6efd;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .section-title p {
+            margin-bottom: 0;
+            color: #6c757d;
+        }
+
+        /* === UPDATED Hero Section Styling === */
+        #home {
+            width: 100%;
+            height: 90vh; 
+            position: relative; 
+            display: flex;
+            flex-direction: column; /* Allow stacking of h1, h2, p */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff; 
+            /* === REPLACE THIS BACKGROUND IMAGE URL with your chosen image === */
+            background-image: url('images/background_image.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed; 
+        }
+
+        #home::before { 
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.55); 
+            z-index: 1; 
+        }
+
+        #home .container { 
+            position: relative;
+            z-index: 2;
+            padding: 20px; /* Add some padding to container */
+        }
+
+        #home h1 {
+            font-size: 52px; 
+            font-weight: 700;
+            line-height: 1.2; 
+            color: #fff; 
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3); 
+        }
+        #home h2 {
+            color: #f0f0f0; 
+            margin-top: 15px; /* Space above subtitle */
+            margin-bottom: 25px; /* Space below subtitle */
+            font-size: 26px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        /* === NEW: Style for the description paragraph === */
+        #home .home-description {
+            font-size: 1.1rem; /* Adjust as needed */
+            color: #e0e0e0;   /* Light gray for readability */
+            line-height: 1.7;
+            max-width: 750px; /* Keep the paragraph width manageable */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px; /* Space before the scroll button */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+        }
+
+        #home .btn-scroll {
+            color: #fff; 
+            font-size: 36px; 
+            animation: bounce 2s infinite;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        #home .btn-scroll:hover {
+            opacity: 1;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        /* === End of UPDATED Hero Section Styling === */
+
+        /* Domain - Accordion */
+        .accordion-button {
+            font-weight: 600;
+            color: #343a40;
+        }
+        .accordion-button:not(.collapsed) {
+            color: #fff;
+            background-color: #0d6efd;
+        }
+        .accordion-button:focus { box-shadow: none; }
+        .accordion-item { border-radius: 0; border: 1px solid #dee2e6; }
+        .accordion-item:first-of-type, .accordion-item:first-of-type .accordion-button { border-top-left-radius: .375rem; border-top-right-radius: .375rem; }
+        .accordion-item:last-of-type, .accordion-item:last-of-type .accordion-button.collapsed { border-bottom-left-radius: .375rem; border-bottom-right-radius: .375rem; }
+
+
+        /* Milestones */
+        #milestones .card {
+            border: none;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            min-height: 150px; 
+        }
+        #milestones .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Documents & Presentations - Cards */
+        .doc-card, .pres-card {
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px; 
+            transition: all 0.3s ease;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex; 
+            align-items: center;
+        }
+        .doc-card:hover, .pres-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        .doc-card .icon, .pres-card .icon {
+            font-size: 36px;
+            color: #0d6efd;
+            margin-right: 20px; 
+            flex-shrink: 0; 
+        }
+        .doc-card .card-content, .pres-card .card-content {
+            flex-grow: 1; 
+        }
+        .doc-card h5, .pres-card h5 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .doc-card a, .pres-card a {
+            text-decoration: none;
+            color: #0d6efd;
+            font-weight: 500;
+        }
+        .doc-card .status, .pres-card .date {
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .status-completed { color: #198754 !important; font-weight: bold;}
+        .status-pending { color: #ffc107 !important; font-weight: bold;}
+        .pres-card.text-center .icon { float: none; display: block; margin: 0 auto 10px auto; } 
+        .pres-card.text-center { display: block; } 
+
+        /* About Us - Team Cards */
+        .member-card {
+            text-align: center;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%; 
+        }
+        .member-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+        .member-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 4px solid #0d6efd;
+        }
+        .member-card h4 { font-weight: 600; }
+        .member-card span { font-size: 14px; color: #6c757d; display: block; }
+        .member-card a { color: #0d6efd; }
+        .member-card p { font-size: 13px; color: #555; }
+
+
+        /* Contact Us */
+        .contact .info-box {
+            color: #444444;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+            padding: 30px;
+            border-radius: 8px;
+            background: #fff;
+            margin-bottom: 30px;
+            height: 100%; 
+        }
+        .contact .info-box i {
+            font-size: 32px;
+            color: #0d6efd;
+            border-radius: 50%;
+            padding: 15px;
+            background: #e7f1ff;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .contact .php-email-form {
+            box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+            padding: 30px;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        /* Footer */
+        .footer {
+            background: #343a40;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70">
+
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">ResearchFolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#domain">Domain</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#milestones">Milestones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#documents">Documents</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#presentations">Presentations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="container">
+            <h1>LEARNMATE</h1>
+            <h2>A Portfolio Exploring [Specific Aspect] for Children with ASD</h2>
+            <p class="home-description">
+                Welcome to our research portfolio. This project delves into [e.g., innovative intervention strategies / the impact of sensory environments / early detection methods / understanding communication patterns] for children with Autism Spectrum Disorder (ASD). Our core aim is to [e.g., enhance developmental outcomes / improve support systems for families and educators / contribute to a deeper understanding of ASD / develop practical tools and resources]. We invite you to explore our work to discover the methodology, key findings, and the progress we've made in this important area of study.
+            </p>
+            <a href="#domain" class="btn-scroll"><i class="bi bi-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <main id="main">
+
+        <section id="domain" class="section-bg">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Research Domain</h2>
+                    <p>Understanding the landscape of our research regarding ASD.</p>
+                </div>
+                <div class="accordion" id="domainAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="bi bi-book me-2"></i> Literature Survey
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#domainAccordion">
+                            <div class="accordion-body">
+                                [Describe your literature survey here. Focus on existing research related to ASD children, interventions, challenges, etc.]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <i class="bi bi-search me-2"></i> Research Gap
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#domainAccordion">
+                            <div class="accordion-body">
+                                [Explain the identified research gap concerning ASD children. What specific areas need more exploration or new approaches?]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                               <i class="bi bi-question-circle me-2"></i> Research Problem
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#domainAccordion">
+                            <div class="accordion-body">
+                                [Clearly state your research problem as it pertains to children with ASD.]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                               <i class="bi bi-bullseye me-2"></i> Research Objectives
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#domainAccordion">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>[Objective 1 related to ASD research]</li>
+                                    <li>[Objective 2 related to ASD research]</li>
+                                    <li>[Objective 3 related to ASD research]</li>
+                                    <li>[Objective 4, e.g., developing a tool, a framework, or guidelines]</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                               <i class="bi bi-gear me-2"></i> Methodology
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#domainAccordion">
+                            <div class="accordion-body">
+                                [Describe the research methodology. Will you be working with children, educators, parents? What methods will be used for data collection and analysis specific to ASD research?]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSix">
+                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                               <i class="bi bi-code-slash me-2"></i> Technologies Used
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#domainAccordion">
+                            <div class="accordion-body">
+                                [List and briefly explain any specific technologies, software, or assessment tools relevant to your ASD research project.]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="milestones">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Milestones</h2>
+                    <p>Tracking our progress through key evaluations.</p>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <label for="milestone-select" class="form-label fs-5">Select an Assessment:</label>
+                        <select class="form-select form-select-lg" id="milestone-select">
+                            <option selected>-- Choose Assessment --</option>
+                            <option value="proposal">Project Proposal</option>
+                            <option value="pp1">Progress Presentation-1</option>
+                            <option value="pp2">Progress Presentation-2</option>
+                            <option value="final">Final Assessment</option>
+                            <option value="viva">Viva</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body p-4" id="milestone-details">
+                                <h5 class="card-title">Select an assessment to see details.</h5>
+                                <p class="card-text text-muted">Information like date and marks allocated will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="documents" class="section-bg">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Documents</h2>
+                    <p>Access our key project documentation.</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="doc-card">
+                           <i class="bi bi-file-earmark-text icon"></i>
+                            <div class="card-content">
+                                <h5>Topic Assessment Form</h5>
+                                <p class="status status-completed">Completed</p>
+                                <a href="documents/TAF_24-25J-209.pdf" download="Topic_Assesment_Form.pdf">Download <i class="bi bi-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-md-6 col-lg-6">
+                        <div class="doc-card">
+                           <i class="bi bi-file-earmark-ruled icon"></i>
+                            <div class="card-content">
+                                <h5>Proposal Document</h5>
+                                <p class="status status-completed">Completed</p>
+                                <a href="documents/" download="Proposal_Document.pdf">Download <i class="bi bi-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-md-6 col-lg-6">
+                        <div class="doc-card">
+                           <i class="bi bi-card-checklist icon"></i>
+                            <div class="card-content">
+                                <h5>Check List Documents</h5>
+                                <p class="status status-completed">Completed</p>
+                                <a href="documents/Check_List_Documents.zip" download="Checklist_Documents.zip">Download <i class="bi bi-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-md-6 col-lg-6">
+                        <div class="doc-card">
+                           <i class="bi bi-journal-bookmark-fill icon"></i>
+                            <div class="card-content">
+                                <h5>Final Reports</h5>
+                                <p class="status status-completed">Completed</p>
+                                <a href="documents/Final_reports.zip" download="Final_Reports.zip">Download <i class="bi bi-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="doc-card">
+                           <i class="bi bi-journal-bookmark-fill icon"></i>
+                            <div class="card-content">
+                                <h5>Research Paper</h5>
+                                <p class="status status-completed">Completed</p>
+                                <a href="documents/Enhancing Cognitive and Metacognitive Domains of Autistic Children using Machine Learning .pdf" download="Research_Paper.pdf">Download <i class="bi bi-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="presentations">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Presentations</h2>
+                    <p>Slides from our key project presentations.</p>
+                </div>
+                 <div class="row gy-4"> 
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pres-card text-center h-100"> 
+                           <i class="bi bi-easel icon"></i>
+                            <div class="card-content">
+                                <h5>Proposal Presentation</h5>
+                                <p class="date">09-08-2024</p>
+                                <a href="presentations/proposal_presentation.pdf" download="Proposal_Slides.pdf" class="btn btn-outline-primary btn-sm mt-2">Download Slides</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pres-card text-center h-100">
+                           <i class="bi bi-easel2 icon"></i>
+                            <div class="card-content">
+                                <h5>Progress Presentation 1</h5>
+                                <p class="date">06-12-2024</p>
+                                <a href="presentations/PP1_24-25J-209.pdf" download="PP1_Slides.pdf" class="btn btn-outline-primary btn-sm mt-2">Download Slides</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pres-card text-center h-100">
+                           <i class="bi bi-easel2 icon"></i>
+                            <div class="card-content">
+                                <h5>Progress Presentation 2</h5>
+                                <p class="date">18-03-2025</p>
+                                <a href="presentations/Progress Presentation 2 - 24-25J-209.pdf" download="PP2_Slides.pdf" class="btn btn-outline-primary btn-sm mt-2">Download Slides</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pres-card text-center h-100">
+                           <i class="bi bi-easel3 icon"></i>
+                            <div class="card-content">
+                                <h5>Final Presentation</h5>
+                                <p class="date">26-05-2024</p>
+                                <a href="#link-to-final-slides" download="Final_Slides.pptx" class="btn btn-outline-primary btn-sm mt-2">Download Slides</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-bg">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Us</h2>
+                    <p>Meet the dedicated team behind the research.</p>
+                </div>
+                
+                <div class="row justify-content-center gy-4"> 
+                    
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member-card w-100">
+                            <img src="images/member1.jpg" alt="[Member 1 Name]">
+                            <h4>[Member 1 Name]</h4>
+                            <span>[Role 1, e.g., Project Lead]</span>
+                            <p class="mt-2"><a href="mailto:member1@example.com">member1@example.com</a></p>
+                            <p>[Brief info or Achievements]</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member-card w-100">
+                            <img src="images/member2.jpg" alt="[Member 2 Name]">
+                            <h4>[Member 2 Name]</h4>
+                            <span>[Role 2]</span>
+                            <p class="mt-2"><a href="mailto:member2@example.com">member2@example.com</a></p>
+                            <p>[Brief info or Achievements]</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member-card w-100">
+                            <img src="images/member3.jpg" alt="[Member 3 Name]">
+                            <h4>[Member 3 Name]</h4>
+                            <span>[Role 3]</span>
+                            <p class="mt-2"><a href="mailto:member3@example.com">member3@example.com</a></p>
+                            <p>[Brief info or Achievements]</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member-card w-100">
+                            <img src="images/Ama.png" alt="[Member 4 Name]">
+                            <h4>Pehesarani W.K.A</h4>
+                            <span>Associate Data Scientist</span>
+                            <p class="mt-2"><a href="mailto:member4@example.com">pehesaraniw.k.a@gmail.com</a></p>
+                            <p>Bechelor of Science(Hons) in Information Technology Specializing in Data Science</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member-card w-100">
+                            <img src="images/member5.jpg" alt="[Member 5 Name]">
+                            <h4>[Member 5 Name]</h4>
+                            <span>[Role 5]</span>
+                            <p class="mt-2"><a href="mailto:member5@example.com">member5@example.com</a></p>
+                            <p>[Brief info or Achievements]</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member-card w-100">
+                            <img src="images/member6.jpg" alt="[Member 6 Name]">
+                            <h4>[Member 6 Name]</h4>
+                            <span>[Role 6]</span>
+                            <p class="mt-2"><a href="mailto:member6@example.com">member6@example.com</a></p>
+                            <p>[Brief info or Achievements]</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member-card w-100">
+                            <img src="images/member7.jpg" alt="[Member 7 Name]">
+                            <h4>[Member 7 Name]</h4>
+                            <span>[Role 7]</span>
+                            <p class="mt-2"><a href="mailto:member7@example.com">member7@example.com</a></p>
+                            <p>[Brief info or Achievements]</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with us for inquiries or collaborations.</p>
+                </div>
+                <div class="row g-4"> 
+                    <div class="col-lg-4 d-flex">
+                        <div class="info-box w-100">
+                           <i class="bi bi-geo-alt"></i>
+                            <h3>Our Location</h3>
+                            <p>Sri Lanka Institute of Information Technology</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 d-flex">
+                        <div class="info-box w-100">
+                           <i class="bi bi-envelope"></i>
+                            <h3>Email Us</h3>
+                            <p><a href="mailto:learnmate24@gmail.com">learnmate24@gmail.com</a></p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 d-flex">
+                        <div class="info-box w-100">
+                           <i class="bi bi-telephone"></i>
+                            <h3>Call Us</h3>
+                            <p><a href="tel:+[YourNumber]">+94760589370</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-lg-12">
+                         <form action="https://formsubmit.co/learnmate24@gmail.com" method="POST" role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                            </div>
+
+                            <input type="hidden" name="_subject" value="New Message from Research Portfolio!">
+
+                            <div class="text-center mt-4"><button type="submit" class="btn btn-primary px-4 py-2">Send Message</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> LearnMate. All Rights Reserved.</p>
+            <p>Inspired by <a href="https://bootstrapmade.com/easyfolio-bootstrap-portfolio-template/">EasyFolio</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>. Built with Bootstrap 5.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Milestone Data
+        const milestoneData = {
+            proposal: { title: "Project Proposal", date: "2024-08-09", marks: "6%", details: "Initial plan submission defining scope and objectives." },
+            pp1: { title: "Progress Presentation-1", date: "2024-12-06", marks: "20%", details: "Literature review completion and refined methodology presentation." },
+            pp2: { title: "Progress Presentation-2", date: "2025-03-18", marks: "18%", details: "Showcasing development progress and preliminary findings." },
+            final: { title: "Final Assessment", date: "2025-04-11", marks: "30%", details: "Submission of the final, comprehensive research report." },
+            viva: { title: "Final Viva & Presentation", date: "2025-05-26", marks: "20%", details: "Oral defense and examination of the research project." }
+        };
+
+        // Milestone Dropdown Logic
+        const milestoneSelect = document.getElementById('milestone-select');
+        const milestoneDetails = document.getElementById('milestone-details');
+
+        milestoneSelect.addEventListener('change', function() {
+            const selected = this.value;
+            if (selected && milestoneData[selected]) {
+                const data = milestoneData[selected];
+                milestoneDetails.innerHTML = `
+                    <h5 class="card-title fw-bold text-primary">${data.title}</h5>
+                    <p class="card-text mb-1"><strong>Date:</strong> ${data.date}</p>
+                    <p class="card-text mb-1"><strong>Marks Allocated:</strong> ${data.marks}</p>
+                    <p class="card-text mt-2"><em>${data.details}</em></p>
+                `;
+            } else {
+                 milestoneDetails.innerHTML = `
+                    <h5 class="card-title">Select an assessment to see details.</h5>
+                    <p class="card-text text-muted">Information like date and marks allocated will appear here.</p>
+                `;
+            }
+        });
+
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Activate scrollspy
+        const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '#navbar',
+            offset: 70
+        });
+        
+        // Smooth scroll for nav links
+         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.hash !== "" && !this.getAttribute('data-bs-toggle')) { 
+                    e.preventDefault();
+                    const hash = this.hash;
+                    const targetElement = document.querySelector(hash);
+                    if(targetElement) {
+                       const navbarHeight = document.getElementById('navbar').offsetHeight;
+                       const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                       const offsetPosition = elementPosition - navbarHeight;
+                       
+                       window.scrollTo({
+                           top: offsetPosition,
+                           behavior: 'smooth'
+                       });
+
+                       const navbarToggler = document.querySelector('.navbar-toggler');
+                       const navbarCollapse = document.querySelector('.navbar-collapse');
+                       if (navbarCollapse.classList.contains('show')) {
+                           navbarToggler.click();
+                       }
+                    }
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
