@@ -230,7 +230,7 @@
             height: 150px;
             border-radius: 50%;
             margin-bottom: 15px;
-            border: 4px solid #0d6efd;
+            /* border: 2px solid #0d6efd; */
         }
         .member-card h4 { font-weight: 600; }
         .member-card span { font-size: 14px; color: #6c757d; display: block; }
@@ -434,13 +434,30 @@
                                     multidimensional data necessary for personalized learning pathways. The application features two distinct yet complementary interfaces. The educator dashboard provides comprehensive progress visualizations and detailed analytics, designed for maximum information density 
                                     while maintaining clarity and accessibility. This allows teachers and caregivers to track developmental progress, identify challenge areas, and evaluate the effectiveness of interventions.
                                 </p>
-                                <ol>
-                                    <b><li type = "1">Model Training</li></b>
-                                    <ld>
-                                        The collected data were pre-processed accordingly before using them in machine learning model training. At least 4 different models were used in each learning domain. After numerous rounds of hyper-parameter tuning, these models were trained with optimized parameters. 
-                                        Then the best models for each learning domain is selected based on the evaluation metrics such as Accuracy, error, F1-Score, Recall and Precision.
-                                    </ld>
-                                </ol>
+                                <b>Model Training</b><br>
+                                <p>
+                                    The collected data were pre-processed accordingly before using them in machine learning model training. At least 4 different models were used in each learning domain. After numerous rounds of hyper-parameter tuning, these models were trained with optimized parameters. 
+                                    Then the best models for each learning domain is selected based on the evaluation metrics such as Accuracy, error, F1-Score, Recall and Precision.
+                                </p>
+                                <b>Recommendations Creation</b><br>
+                                <p>
+                                    By categorizing children according to different age ranges and domain levels (mild, moderate and severe) each recommendation is appropriately contextualized to align with children's capacity and learning needs. All activities are designed to be inclusive of all autistic 
+                                    children to avoid exclusion by cognitive or motor impairments. The activities are primarily based on strengthening key learning skills. Each recommendation is fully articulated, using simple terms and depictions, and incorporates step-by-step instructions to facilitate 
+                                    understanding and implementation. The effectiveness of the recommendations will be monitored as children progress and will be adjusted accordingly.
+                                </p>
+                                <b>Progress Tracking</b><br>
+                                <p>
+                                    The percentage of progress will be calculated for each recommended activity and stored. The concluding point-in-time percentage for progress will be calculated as an average across all recommendation activities. Parents will then enter the performance metrics for your child 
+                                    on a weekly basis. As data is logged, the system will track and visualize the percentage increase/decrease each day for each activity in a line graph, which will illustrate the percentage progress report over time to the parent and allow each to observe trends over time and 
+                                    determine whether ongoing support or increased focus is warranted and make recommendations based on the child's continued progress.
+                                </p>
+                                <b>Frontend implementation</b><br>
+                                <p>
+                                    A comprehensive chart showing the progress of the individuals is presented in detail and displayed to responsible personnel, similar to educators and/or teachers. The component of the dashboard is significant as it requires the display of all necessary data, which must all 
+                                    be viewable in a simplified manner. Following this, there is a change in the interface where the child is given direct, personalized recommendations specific to them as the individual. This is designed to allow the child to begin and complete these activities while remaining 
+                                    simple, obvious, and appropriate to a child. Considering that autistic children are sensitive to different stimuli; the application is designed with soft colours and a touch of warm tones. The complete set of UI elements, including buttons, forms, and activities, has been 
+                                    kept simple, as the primary users are care-givers and teachers.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -452,7 +469,38 @@
                         </h2>
                         <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#domainAccordion">
                             <div class="accordion-body">
-                                [List and briefly explain any specific technologies, software, or assessment tools relevant to your ASD research project.]
+                                <div class="row justify-content-center gy-4">
+                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                                        <div class="member-card w-100">
+                                            <img src="images/Python.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                                        <div class="member-card w-100">
+                                            <img src="images/Github.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                                        <div class="member-card w-100">
+                                            <img src="images/mongo.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                                        <div class="member-card w-100">
+                                            <img src="images/flask.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                                        <div class="member-card w-100">
+                                            <img src="images/react.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                                        <div class="member-card w-100">
+                                            <img src="images/vscode.png">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -624,11 +672,11 @@
 
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
                         <div class="member-card w-100">
-                            <img src="images/member2.jpg" alt="[Member 2 Name]">
-                            <h4>[Member 2 Name]</h4>
-                            <span>[Role 2]</span>
-                            <p class="mt-2"><a href="mailto:member2@example.com">member2@example.com</a></p>
-                            <p>[Brief info or Achievements]</p>
+                            <img src="images/Yashika.jpg" alt="[Member 2 Name]">
+                            <h4>Rupasinghe Y.S.</h4>
+                            <span>Junior Data Engineer</span>
+                            <p class="mt-2"><a href="mailto:member2@example.com">it21160820@my.sliit.lk</a></p>
+                            <p>Bachelor of Science(Hons) in Information Technology Specializing in Data Science</p>
                         </div>
                     </div>
 
